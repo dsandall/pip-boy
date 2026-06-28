@@ -1,0 +1,33 @@
+£(Pip.removeSubmenu)Pip.removeSubmenu();
+¾Pip.removeSubmenu;
+£(Pip.remove)Pip.remove();
+¾Pip.remove;
+g.clear();
+­G=Graphics.createArrayBuffer(400,308,2,{msb:´,buffer:E.toArrayBuffer(E.memoryArea(0x10000000+16384,(400*308)’2))});
+G.flip=()¢Pip.blitImage(G,40,7);
+­W=G.getWidth();
+­H=G.getHeight();
+ªonKnob(dir){ship.r—dir*0.2;}
+Pip.on(Ñknob1,onKnob);
+Pip.remove=ª(){clearInterval(frameInterval);Pip.removeListener(Ñknob1,onKnob);};
+­running=´;
+­ship={};
+­ammo=[];
+­ast=[];
+­score=0;
+­level=10;
+­framesSinceFired=0;
+­lastFrame;
+®SS=W/24;
+®AS=W/18;
+®SR=SS/2;
+®AST=[0,-1.5,1,0,0.5,0,0.5,0.5,0,1,-1,0,-1,-1];
+®SHIP=[SS,0,-0.6*SS,0.4*SS,-0.3*SS,0,-0.6*SS,-0.4*SS,];
+ªnewAst(x,y){¬a={x:x,y:y,vx:Math.random()-0.5,vy:Math.random()-0.5,rad:10+Math.random()*AS};«a;}
+ªgameStop(){console.log(Ñ	Game over);running=µ;G.clear(1).setFontMonofonto28().setFontAlign(0,0).drawString(Ñ
+Game Over!,W/2,H/2).flip();}
+ªaddAsteroids(){§(¬i=0;i<level;i˜){¬d,x,y;¥{x=Math.random()*W;y=Math.random()*H;¬dx=x-ship.x,dy=y-ship.y;d=Math.sqrt(dx*dx+dy*dy);}¦(d<10);ast.push(newAst(x,y));}}
+ªgameStart(){ammo=[];ast=[];score=0;level=4;ship={x:W/2,y:H/2,r:0,v:0};timeSinceFired=0;addAsteroids();running=´;}
+ªonFrame(){Ñram¬t=getTime();¬d=(lastFrame‹·)?0:(t-lastFrame)*20;lastFrame=t;£(!running){£(KNOB1_BTN.read())gameStart();«;}ship.vš0.9;£(BTN_TUNEUP.read())ship.v–0.2;ship.x–Math.cos(ship.r)*ship.v;ship.y–Math.sin(ship.r)*ship.v;£(ship.x<0)ship.x–W;£(ship.y<0)ship.y–H;£(ship.x‘W)ship.x—W;£(ship.y‘H)ship.y—H;timeSinceFired–d;£(KNOB1_BTN.read()žtimeSinceFired>4){timeSinceFired=0;ammo.push({x:ship.x+Math.cos(ship.r)*SS,y:ship.y+Math.sin(ship.r)*SS,vx:Math.cos(ship.r)*3,vy:Math.sin(ship.r)*3,});Pip.audioStartVar(Pip.audioBuiltin(ÑCLICK));}G.clear(1).setFontMonofonto28().drawString(score,8,8);G.drawPolyAA(g.transformVertices(SHIP,{x:ship.x,y:ship.y,scale:1,rotate:ship.r}),´);¬na=[];ammo.forEach(ª(a){a.x–a.vx*d;a.y–a.vy*d;G.fillRect(a.x-1,a.y,a.x+1,a.y).fillRect(a.x,a.y-1,a.x,a.y+1);¬hit=µ;ast.forEach(ª(b){¬dx=a.x-b.x;¬dy=a.y-b.y;¬d=Math.sqrt(dx*dx+dy*dy);£(d<b.rad){hit=´;b.hit=´;score˜;}});£(!hitža.x‘0ža.y‘0ža.x<Wža.y<H)na.push(a);});ammo=na;na=[];¬crashed=µ;ast.forEach(ª(a){a.x–a.vx*d;a.y–a.vy*d;G.drawPolyAA(g.transformVertices(AST,{x:a.x,y:a.y,scale:a.rad,rotate:t}),´);£(a.x<0)a.x–W;£(a.y<0)a.y–H;£(a.x‘W)a.x—W;£(a.y‘H)a.y—H;£(!a.hit){na.push(a);}¤£(a.rad>10){a.hit=µ;¬vx=1*(Math.random()-0.5);¬vy=1*(Math.random()-0.5);a.rad›2;na.push({x:a.x,y:a.y,vx:a.vx-vx,vy:a.vy-vy,rad:a.rad,});a.vx–vx;a.vy–vy;na.push(a);}¬dx=a.x-ship.x;¬dy=a.y-ship.y;¬d=Math.sqrt(dx*dx+dy*dy);£(d<a.rad+SR)crashed=´;});ast=na;£(!ast.length){level˜;addAsteroids();}G.flip();£(crashed)gameStop();}
+gameStart();
+¬frameInterval=setInterval(onFrame,50);

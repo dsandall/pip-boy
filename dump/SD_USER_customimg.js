@@ -1,0 +1,4 @@
+£(Pip.removeSubmenu)Pip.removeSubmenu();
+¾Pip.removeSubmenu;
+£(Pip.remove)Pip.remove();
+¾Pip.remove;{­G=Graphics.createArrayBuffer(400,300,2,{msb:´,buffer:E.toArrayBuffer(E.memoryArea(0x10000000+32768,(400*300)’2))});G.clear();G.flip=()¢Pip.blitImage(G,40,11);­f=E.openFile(ÑUSER/customimg.img,Ñr);­o=0,a=¸Uint8Array(G.buffer),b=f.read(2048);¦(b){a.set(b,o);o–b.length;b=f.read(2048);}f.close();g.clear();G.flip();­closeImage=ª(){Pip.remove();¾Pip.remove;showMainMenu();submenuApps();}­onKnob=ª(d){closeImage();}­interval=setInterval(()¢G.flip(),25);Pip.on(Ñknob1,onKnob);Pip.on(Ñknob2,onKnob);Pip.remove=ª(){Pip.removeListener(Ñknob1,onKnob);Pip.removeListener(Ñknob2,onKnob);£(interval)clearInterval(interval);interval=·;g.clear();};}

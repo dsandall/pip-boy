@@ -1,0 +1,6 @@
+# huge external checkouts / build outputs — not ours to vendor
+firmware/espruino/
+firmware/toolchain/
+firmware/*.log
+*.pyc
+__pycache__/

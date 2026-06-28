@@ -1,0 +1,1 @@
+function () {let a=Math.pow(2,Pip.brightness/2)/1024;analogWrite(LCD_BL,a),analogWrite(LED_RED,a,{soft:!0}),analogWrite(LED_GREEN,a/2),Pip.radioOn&&analogWrite(LED_TUNING,a,{soft:!0})}
