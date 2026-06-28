@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Classify Pip.* members as native-C vs JS, and pull one JS func's source."""
 import serial, time, re, os
-PORT="/dev/ttyACM1"; OUT="/home/thebu/pipboy_dump"
+PORT="/dev/ttyACM1"; OUT="/home/thebu/newhome/projects/pip-boy/dump"
 ser=serial.Serial(PORT,9600,timeout=0.2); time.sleep(0.3)
 STX=b"\x02"; ETX=b"\x03"
 def pcall(expr, hard=20.0):

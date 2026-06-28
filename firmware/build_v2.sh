@@ -2,10 +2,10 @@
 # Functional rebuild: pinned ARM GCC 13.2 + RELEASE_2V25 tag (device's exact
 # commit ec7ff98c3 / 2v25.359 is a PRIVATE Wand Co build, not in the public repo).
 set -uo pipefail
-FW=/home/thebu/pipboy/firmware
+FW=/home/thebu/newhome/projects/pip-boy/firmware
 ESP=$FW/espruino
 TC=$FW/toolchain
-GROUND=/home/thebu/pipboy/dump/SD_pipboy.bin
+GROUND=/home/thebu/newhome/projects/pip-boy/dump/SD_pipboy.bin
 TCURL="https://github.com/espruino/EspruinoBuildTools/raw/master/arm/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi-stripped.tar.xz"
 
 # 1. toolchain

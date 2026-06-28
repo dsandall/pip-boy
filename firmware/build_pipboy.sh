@@ -2,8 +2,8 @@
 # Wait for clone, checkout the device's exact commit, build PIPBOY firmware,
 # and compare against the ground-truth dump pulled off the device.
 set -uo pipefail
-ESP=/home/thebu/pipboy/firmware/espruino
-GROUND=/home/thebu/pipboy/dump/SD_pipboy.bin
+ESP=/home/thebu/newhome/projects/pip-boy/firmware/espruino
+GROUND=/home/thebu/newhome/projects/pip-boy/dump/SD_pipboy.bin
 COMMIT=ec7ff98c3
 
 echo "[*] waiting for clone to finish..."
@@ -21,7 +21,7 @@ git submodule update --init --recursive 2>&1 | tail -3
 
 echo "[*] building: RELEASE=1 BOARD=PIPBOY make"
 export RELEASE=1 BOARD=PIPBOY
-time make 2>&1 | tee /home/thebu/pipboy/firmware/build.log | tail -40
+time make 2>&1 | tee /home/thebu/newhome/projects/pip-boy/firmware/build.log | tail -40
 echo "[*] build exit: ${PIPESTATUS[0]}"
 
 echo "[*] artifacts:"

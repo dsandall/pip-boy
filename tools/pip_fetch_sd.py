@@ -2,7 +2,7 @@
 """Fetch specific SD-card files from the Pip-Boy over the Espruino REPL.
 Binary-safe chunked base64 via \\x02..\\x03 sentinels. Read-only."""
 import serial, time, base64, os, sys, re
-PORT="/dev/ttyACM1"; OUT="/home/thebu/pipboy_dump"
+PORT="/dev/ttyACM1"; OUT="/home/thebu/newhome/projects/pip-boy/dump"
 os.makedirs(OUT, exist_ok=True)
 ser=serial.Serial(PORT,9600,timeout=0.2); time.sleep(0.3)
 STX=b"\x02"; ETX=b"\x03"

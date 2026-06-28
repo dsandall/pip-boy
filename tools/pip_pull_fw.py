@@ -2,7 +2,7 @@
 """Pull /pipboy.bin + /pipboy.crc (ground-truth firmware) over the REPL."""
 import serial,time,base64,os,sys
 ser=serial.Serial("/dev/ttyACM1",9600,timeout=0.2); time.sleep(0.3)
-OUT="/home/thebu/pipboy_dump"; STX=b"\x02"; ETX=b"\x03"
+OUT="/home/thebu/newhome/projects/pip-boy/dump"; STX=b"\x02"; ETX=b"\x03"
 def pcall(e,hard=30):
     ser.reset_input_buffer()
     ser.write(("print(String.fromCharCode(2)+("+e+")+String.fromCharCode(3))\r\n").encode());ser.flush()

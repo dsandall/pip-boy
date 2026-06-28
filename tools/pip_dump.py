@@ -4,7 +4,7 @@ Uses print() with @@..## sentinels to defeat the interactive inspector's
 'head ... tail' abbreviation. Strict base64 decode. No flashing/reset."""
 import serial, time, base64, os, sys, re
 
-PORT="/dev/ttyACM1"; OUT="/home/thebu/pipboy_dump"
+PORT="/dev/ttyACM1"; OUT="/home/thebu/newhome/projects/pip-boy/dump"
 os.makedirs(OUT, exist_ok=True)
 ser=serial.Serial(PORT,9600,timeout=0.2); time.sleep(0.3)
 
