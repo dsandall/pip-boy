@@ -4,3 +4,6 @@ firmware/toolchain/
 firmware/*.log
 *.pyc
 __pycache__/
+
+# uv-managed virtualenv (uv.lock IS tracked)
+.venv/

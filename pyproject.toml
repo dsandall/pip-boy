@@ -1,0 +1,14 @@
+[project]
+name = "pip-boy-tools"
+version = "0.1.0"
+description = "Host-side tooling for dumping, rebuilding, and feeding the Wand Company Pip-Boy 3000 Mk V over its Espruino serial REPL"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pyserial>=3.5",
+]
+
+# Collection of standalone scripts under tools/, not an installable package.
+# Run them with: uv run python tools/pip_ticker.py
+[tool.uv]
+package = false
